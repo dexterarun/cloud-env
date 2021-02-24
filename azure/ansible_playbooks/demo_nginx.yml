@@ -1,0 +1,22 @@
+---
+- name: install web stuff
+  hosts: all
+  tags: web
+
+  become: true
+
+  tasks:
+    - name: update and upgrade
+      package:
+        upgrade: yes
+        update_cache: yes
+
+    - name: webserver
+      package:
+        name: nginx
+        state: absent
+
+    - name: webserver-service
+      service:
+        name: nginx
+        state: stopped
