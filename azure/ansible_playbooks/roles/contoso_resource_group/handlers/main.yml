@@ -1,7 +1,6 @@
 ---
 # handlers file for contoso_resource_group
 
-handlers:
-  - name: resource_group_created
-    ansible.builtin.debug:
-      msg: "Resource group creation successful"
+- name: resource_group_created
+  ansible.builtin.debug:
+    msg: "Resource group creation successful"
