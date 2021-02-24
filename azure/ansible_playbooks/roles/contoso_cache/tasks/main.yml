@@ -1,2 +1,18 @@
 ---
 # tasks file for contoso_cache
+- name: Create Azure Cache for Redis
+  azure_rm_rediscache:
+    resource_group: "{{ resource_group }}"
+    name: "{{ redis_name }}"
+    sku:
+      name: basic
+      size: C1
+
+- name: Wait for Redis provisioning to complete
+  azure_rm_rediscache_facts:
+    resource_group: "{{ resource_group }}"
+    name: "{{ redis_name }}"
+  register: facts
+  until: "{{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}"
+  retries: 100
+  delay: 60
