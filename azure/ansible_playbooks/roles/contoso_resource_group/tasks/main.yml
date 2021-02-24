@@ -1,0 +1,7 @@
+---
+# tasks file for contoso_resource_group
+
+- name: Create resource group if doesn't exist
+  azure_rm_resourcegroup:
+    name: "{{ resource_group }}"
+    location: "{{ location }}"

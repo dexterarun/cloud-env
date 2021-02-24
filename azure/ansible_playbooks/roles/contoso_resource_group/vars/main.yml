@@ -1,0 +1,4 @@
+---
+# vars file for contoso_resource_group
+location: uksouth
+resource_group: contoso_demo

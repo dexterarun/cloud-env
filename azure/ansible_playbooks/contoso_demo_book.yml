@@ -1,0 +1,6 @@
+- name: Create Resource contoso_resource_group
+  tags: rg
+  hosts: localhost
+
+  roles:
+    - contoso_resource_group
